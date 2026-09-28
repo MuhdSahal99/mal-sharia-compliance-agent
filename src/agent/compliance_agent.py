@@ -163,10 +163,11 @@ class ComplianceAgent:
             user_message_length=len(user_message),
             context_chunks_count=len(context_strings),
         )
-        logger.debug(
+        logger.info(
             "llm_prompt_full",
-            system_prompt=SYSTEM_PROMPT[:500],
-            user_message=user_message[:1000],
+            trace_id=get_current_trace_id(),
+            system_prompt=SYSTEM_PROMPT,
+            user_message=user_message,
         )
 
         # Call chat completions API
