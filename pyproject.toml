@@ -1,0 +1,26 @@
+[project]
+name = "mal-sharia-compliance-agent"
+version = "0.1.0"
+description = "RAG-powered Sharia compliance assessment agent for Mal's internal compliance team"
+requires-python = ">=3.11"
+readme = "README.md"
+license = { text = "MIT" }
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true

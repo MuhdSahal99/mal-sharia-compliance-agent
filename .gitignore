@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+eggs/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Environment variables — NEVER commit real keys
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local generated data
+chroma_data/
+
+# Logs
+logs/
+*.log
+
+# Test / Coverage
+.pytest_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# Distribution
+*.tar.gz
+*.whl

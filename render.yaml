@@ -1,0 +1,28 @@
+# Render deployment configuration
+# See: https://render.com/docs/yaml-spec
+
+services:
+  - type: web
+    name: mal-sharia-compliance-agent
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn src.main:app --host 0.0.0.0 --port $PORT --workers 1 --timeout-keep-alive 120
+    healthCheckPath: /health
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: PINECONE_API_KEY
+        sync: false
+      - key: PINECONE_INDEX_NAME
+        value: mal-sharia-standards
+      - key: PINECONE_NAMESPACE
+        value: sharia-standards
+      - key: PINECONE_DIMENSION
+        value: "3072"
+      - key: PINECONE_CLOUD
+        value: aws
+      - key: PINECONE_REGION
+        value: us-east-1
+      - key: LOG_LEVEL
+        value: INFO
